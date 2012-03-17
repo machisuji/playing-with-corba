@@ -12,7 +12,7 @@ public class StockFactoryImpl extends StockFactoryPOA {
 
     public Stock create_stock(String symbol, String description) {
         try {
-            ORB orb = org.omg.CORBA.ORB.init();
+            ORB orb = StockORB.getInstance();
             StockImpl newStock = new StockImpl(null, description);
 
             POA rootpoa = POAHelper.narrow(orb.resolve_initial_references("RootPOA"));
@@ -26,20 +26,12 @@ public class StockFactoryImpl extends StockFactoryPOA {
             org.omg.CORBA.Object ref = rootpoa.servant_to_reference(newStock);
             Stock stockRef = StockHelper.narrow(ref);
 
-            register(stockRef, "stock/" + symbol, orb);
+            StockORB.register(stockRef, "stock/" + symbol, orb);
 
             return stockRef;
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException("Stock creation failed");
         }
-    }
-
-    protected void register(Stock stock, String name, ORB orb) throws Exception {
-        org.omg.CORBA.Object objRef = orb.resolve_initial_references("NameService");
-        NamingContextExt nc = NamingContextExtHelper.narrow(objRef);
-        NameComponent path[] = nc.to_name(name);
-
-        nc.rebind(path, stock);
     }
 }
