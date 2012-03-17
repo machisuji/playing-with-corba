@@ -1,0 +1,1 @@
+build with sbt 0.11+ (no build file required, just sbt compile et voila)
