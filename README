@@ -1,1 +1,6 @@
-build with sbt 0.11+ (no build file required, just sbt compile et voila)
+Getting to know CORBA
+---------------------
+
+build with sbt 0.11+ (no build file required, just sbt compile et voila) if you like
+
+based on Java 6 CORBA API
