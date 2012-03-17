@@ -3,4 +3,5 @@ Getting to know CORBA
 
 build with sbt 0.11+ (no build file required, just sbt compile et voila) if you like
 
-based on Java 6 CORBA API
+  - based on Java 6 CORBA API
+  - generate source from IDL with `idlj -fall stock.idl` (-fall for both client and server side code)
