@@ -21,7 +21,7 @@ public class StockFactoryImpl extends StockFactoryPOA {
             }
             byte[] id = rootpoa.activate_object(newStock);
 
-            System.out.println("activated object: " + new String(id));
+            System.out.println("created stock: " + symbol);
 
             org.omg.CORBA.Object ref = rootpoa.servant_to_reference(newStock);
             Stock stockRef = StockHelper.narrow(ref);
