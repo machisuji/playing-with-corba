@@ -1,0 +1,18 @@
+// run in scala console (:l client.scc)
+
+{
+  val client = new stock.Client
+
+  println("How's JAX?")
+  client readStock "JAX" // -> unknown stock
+  println("Ah forgot to create it!\n")
+  client createStock ("JAX", "Alexander Jay's Corporation")
+
+  println("What about now?")
+  client readStock "JAX" // -> empty stock
+  println("Ah forgot to set the quote!\n")
+  client setQuote ("JAX", 29.99)
+
+  println("And now?")
+  client readStock "JAX"
+}

@@ -1,0 +1,3 @@
+// run in scala console (:l server.scc)
+
+new stock.Server run
