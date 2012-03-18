@@ -10,7 +10,7 @@ Running the example:
 
   - in three separate terminals do
     1. orbdaemon
-    2. xisbt console
+    2. sbt console
       - :l server.scc
-    3. xisbt console
+    3. sbt console
       - :l client.scc
