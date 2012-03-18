@@ -26,7 +26,7 @@ public class StockFactoryImpl extends StockFactoryPOA {
             org.omg.CORBA.Object ref = rootpoa.servant_to_reference(newStock);
             Stock stockRef = StockHelper.narrow(ref);
 
-            StockORB.register(stockRef, "stock/" + symbol, orb);
+            StockORB.register(stockRef, "stock-" + symbol, orb);
 
             return stockRef;
         } catch (Exception e) {

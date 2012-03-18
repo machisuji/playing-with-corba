@@ -28,12 +28,12 @@ public class Server {
             }
             byte[] id = rootpoa.activate_object(factory);
 
-            System.out.println("activated StockFactory: " + new String(id));
-
             org.omg.CORBA.Object ref = rootpoa.servant_to_reference(factory);
             StockFactory factoryRef = StockFactoryHelper.narrow(ref);
 
             StockORB.register(factoryRef, "StockFactory", orb);
+
+            System.out.println("registered StockFactory");
 
             return factoryRef;
         } catch (Exception e) {
